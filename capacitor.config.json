@@ -1,0 +1,7 @@
+{
+  "appId": "surveyapp",
+  "appName": "survey",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build"
+}

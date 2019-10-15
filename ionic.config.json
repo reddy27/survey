@@ -1,5 +1,7 @@
 {
   "name": "help",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "react"
 }
