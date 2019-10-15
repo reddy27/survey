@@ -1,13 +1,13 @@
 import {
-    IonHeader, IonPage, IonTitle, IonItem, IonLabel, IonInput, IonContent, IonList, IonButton
+    IonHeader, IonPage, IonTitle, IonItem, IonLabel, IonInput, IonContent, IonList, IonButton,IonToolbar
 } from '@ionic/react';
 import Home from "./Home";
 import React, { useState} from 'react';
 import { Route} from 'react-router-dom';
-const moveCenter = {
-    'textAlign': 'center',
-    'color': 'blue'
-}
+// const moveCenter = {
+//     'textAlign': 'center',
+//     'color': 'blue'
+// }
 
 
 
@@ -26,13 +26,11 @@ const Login: React.FC = (props) => {
 
     return (
         <IonPage>
-            <IonHeader>
-                <IonTitle style={moveCenter}>
-                    Welcome to Survey
-                </IonTitle>
+             <IonHeader >
+                    <IonToolbar>
+                        <IonTitle>Welcome to Survey</IonTitle>
+                    </IonToolbar>
             </IonHeader>
-            <br />
-            <br />
             <IonContent>
             <IonList>
                 <form onSubmit={(e) => { e.preventDefault(); handleSubmit();}}>
