@@ -1,10 +1,9 @@
 import {
-    IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSlides, IonSlide, IonLabel, IonInput,
-    IonList, IonItem, IonButton, IonCard, IonCardSubtitle, IonCardTitle, IonCardContent, IonIcon,
-    IonGrid, IonRow, IonCol, IonRadioGroup, IonListHeader, IonRadio, IonTextarea, IonCheckbox, IonRouterLink
+    IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonSlides, IonSlide, IonLabel,
+    IonList, IonItem, IonButton, IonCard, IonCardSubtitle, IonCardTitle, IonCardContent, IonRadioGroup
+    , IonRadio, IonTextarea, IonCheckbox
 } from '@ionic/react';
-import React, {useDebugValue, useState} from 'react';
-import Congrats from "./Congrats";
+import React, { useState} from 'react';
 import {withRouter} from "react-router";
 
 
@@ -15,7 +14,7 @@ const slideOpts = {
 
 const questions = [
     {
-        'question_name': 'What year were you born?',
+        'question_name': 'What is your gender?',
         'question_number': '1',
         'question_title': '',
         "options": ['Male', 'female', 'Other'],
@@ -47,142 +46,36 @@ const questions = [
 ]
 
 
-const getSurveyList = async () => {
-    const APIResponse = await fetch("https://surveryapiapp.herokuapp.com/survey");
-    const JSONResp = await APIResponse.json();
-    return JSONResp
-};
+// const getSurveyList = async () => {
+//     const APIResponse = await fetch("https://surveryapiapp.herokuapp.com/survey");
+//     const JSONResp = await APIResponse.json();
+//     return JSONResp
+// };
 
 
-const TypeAnswer = (data: any, questions: any) => {
-
-
-    const [answers, setAnswers] = useState({
-        'answer': ''
-    })
-
-    const surveyData = data.data
-
-    const handleChange = (event: any) => {
-        // const { name, value } = event.target;
-        setAnswers({answer: event.target.value})
-        console.log('event', answers)
-    }
-    const handleSubmit = () => {
-        console.log('handleSubmit', answers)
-
-    }
-
-    return (
-        <form onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-        }}>
-            <IonList>
-                <IonRadioGroup>
-                    <IonListHeader>
-                        <IonLabel>Name</IonLabel>
-                    </IonListHeader>
-
-                    <IonItem>
-                        <IonLabel>Biff</IonLabel>
-                        <IonRadio slot="start" value="biff" name="biff" checked={answers.answer === "biff"}
-                                  onIonSelect={handleChange}/>
-                    </IonItem>
-
-                    <IonItem>
-                        <IonLabel>Griff</IonLabel>
-                        <IonRadio slot="start" value="griff" checked={answers.answer === "griff"}
-                                  onIonSelect={handleChange}/>
-                    </IonItem>
-
-                    <IonItem>
-                        <IonLabel>Buford</IonLabel>
-                        <IonRadio slot="start" value="buford" checked={answers.answer === "buford"}
-                                  onIonSelect={handleChange}/>
-                    </IonItem>
-
-                </IonRadioGroup>
-            </IonList>
-
-            {/*{surveyData.type === 'single'  ?  (*/}
-            {/*    <IonList >*/}
-            {/*   */}
-            {/*        {surveyData.options.map((option: any, index: any) => (*/}
-
-            {/*                <IonItem>*/}
-            {/*                    <IonLabel>{option}</IonLabel>*/}
-            {/*                    <IonRadio slot="start" value={option} name={option} checked={answers.answer === option}  onIonSelect={ handleChange} />*/}
-            {/*                    /!*<IonInput value={answers} onChange={(event:any) => setAnswers(event.target.value)} />*!/*/}
-            {/*                </IonItem>*/}
-
-            {/*        ))}*/}
-            {/*    </IonList>*/}
-            {/*): surveyData.type === 'multiselect'  ?  (*/}
-            {/*    <IonList >*/}
-            {/*        {surveyData.options.map((option: any, index: any) => (*/}
-
-            {/*                <IonItem>*/}
-            {/*                    <IonLabel>{option}</IonLabel>*/}
-            {/*                    <IonRadio slot="start" value={option}   />*/}
-            {/*                    /!*<IonInput value={answers} onChange={(event:any) => setAnswers(event.target.value)} />*!/*/}
-            {/*                </IonItem>*/}
-
-            {/*        ))}*/}
-            {/*    </IonList>*/}
-            {/*)  : surveyData.type === 'shortanswer' ? (*/}
-
-            {/*    <IonItem >*/}
-            {/*        /!*<IonLabel position="floating">Please type our answer below.</IonLabel>*!/*/}
-            {/*        /!*<IonTextarea   onKeyPress={(event:any) => setAnswers([{ 'answer': event.target.value } ])} placeholder="Enter more information here..."></IonTextarea>*!/*/}
-            {/*        <IonButton type="submit" >Submit</IonButton>*/}
-            {/*    </IonItem>*/}
-
-
-            {/*) :  surveyData.type === 'preview' ? (*/}
-
-            {/*        <IonItem >*/}
-            {/*            /!*{questions.map(val => (*!/*/}
-            {/*            /!*    <IonCardTitle> {val['question_name']}</IonCardTitle>*!/*/}
-            {/*            /!*))} *!/*/}
-            {/*            /!* {questions.questions.filter((val:any) => (*!/*/}
-            {/*            /!*     <IonCardTitle> {val['question_name']}</IonCardTitle>*!/*/}
-            {/*            /!* ) )}*!/*/}
-
-            {/*        </IonItem>*/}
-
-
-            {/*    ) :*/}
-
-            {/*    ( <p>This question doesn't have an required options.</p>)}*/}
-        </form>
-    )
-
-
-}
 
 const Home: React.FC<any> = (props) => {
 
 
-    const [list, setSurvey] = React.useState([]);
-    const items: any[] = [];
+    // const [list, setSurvey] = React.useState([]);
+    // const items: any[] = [];
 
 
-    React.useEffect(() => {
+    // React.useEffect(() => {
+    //
+    //     //getSurveyList().then(data => setSurvey(data));
+    //
+    //
+    // }, []);
 
-        //getSurveyList().then(data => setSurvey(data));
-
-
-    }, []);
-
-    const handleNext = (event: any) => {
-        // slideNext()
-        // @ts-ignore
-        let mySwiper = document.querySelector('.swiper-container').swiper
-
-        // Now you can use all slider methods like
-        mySwiper.slideNext();
-    }
+    // const handleNext = (event: any) => {
+    //     // slideNext()
+    //     // @ts-ignore
+    //     let mySwiper = document.querySelector('.swiper-container').swiper
+    //
+    //     // Now you can use all slider methods like
+    //     mySwiper.slideNext();
+    // }
 
     const [btnName, setbtnName] = useState()
 
@@ -191,7 +84,7 @@ const Home: React.FC<any> = (props) => {
     const [textAreaValue, setTextAreaValue] = useState()
 
     const handle = (event: any) => {
-        const {name, value} = event.target;
+
         setbtnName(event.target.value)
     }
     const handleCheckbox = (event: any) => {
@@ -277,8 +170,8 @@ const Home: React.FC<any> = (props) => {
                                             <IonRadioGroup>
 
                                                 {val.type === 'single' ? <div>
-                                                        {val.options.map(value => (
-                                                            <IonItem>
+                                                        {val.options.map((value, index) => (
+                                                            <IonItem key={index}>
                                                                 <IonLabel>{value}</IonLabel>
                                                                 <IonRadio slot="start" value={value}
                                                                           checked={btnName === value} onIonSelect={handle}/>
@@ -286,8 +179,8 @@ const Home: React.FC<any> = (props) => {
                                                         ))}
                                                     </div> :
                                                     val.type === 'multiselect' ? <div>
-                                                            {val.options.map(value => (
-                                                                <IonItem>
+                                                            {val.options.map((value, index) => (
+                                                                <IonItem key={index}>
                                                                     <IonLabel>{value}</IonLabel>
                                                                     <IonCheckbox slot="start" value={value}
                                                                                  onIonChange={handleCheckbox}/>

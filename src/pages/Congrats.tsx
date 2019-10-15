@@ -1,14 +1,11 @@
 import {
     IonHeader, IonPage, IonTitle, IonContent, IonButton
 } from '@ionic/react';
-import React, {useDebugValue, useState} from 'react';
+import React from 'react';
 import './style.css'
 const moveCenter = {
     'textAlign': 'center',
     'color': 'green'
-}
-const changeBackground = {
-    'background': 'black'
 }
 
 

@@ -1,8 +1,8 @@
 import {
-    IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonLabel, IonInput, IonContent, IonList, IonButton
+    IonHeader, IonPage, IonTitle, IonItem, IonLabel, IonInput, IonContent, IonList, IonButton
 } from '@ionic/react';
 import Home from "./Home";
-import React, {useDebugValue, useState} from 'react';
+import React, { useState} from 'react';
 import { Route} from 'react-router-dom';
 const moveCenter = {
     'textAlign': 'center',

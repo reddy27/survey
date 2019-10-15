@@ -1,7 +1,7 @@
 import {
-    IonHeader, IonPage, IonTitle, IonToolbar, IonItem, IonLabel, IonInput, IonContent, IonList, IonButton
+    IonHeader, IonPage, IonTitle, IonItem, IonLabel, IonInput, IonContent, IonList, IonButton
 } from '@ionic/react';
-import React, {useDebugValue, useReducer, useState} from 'react';
+import React, {useState} from 'react';
 
 const moveCenter = {
     'textAlign': 'center',
@@ -20,13 +20,13 @@ const Admin: React.FC = (props) => {
     const [name, setName] = useState('')
     const [title, setTitle] = useState('')
 
-
-    const handleChange = (event:any) => {
-        const name = event.target.name;
-        const newValue = event.target.value;
-        //setValue({[name]: newValue})
-        //console.log('handleChange', list)
-    }
+    //
+    // const handleChange = (event:any) => {
+    //     const name = event.target.name;
+    //     const newValue = event.target.value;
+    //     //setValue({[name]: newValue})
+    //     //console.log('handleChange', list)
+    // }
 
     const handleSubmit = () => {
         console.log('handleSubmit', {name, title})
